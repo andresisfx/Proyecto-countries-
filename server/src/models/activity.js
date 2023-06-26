@@ -1,4 +1,4 @@
-const {DataTypes, UUIDV4} = require("sequelize");
+const {DataTypes, } = require("sequelize");
 
 module.exports = (sequelize)=>{
     sequelize.define("Activity",
@@ -13,7 +13,7 @@ module.exports = (sequelize)=>{
             type:DataTypes.STRING,
             allowNull:false
         },
-        dificult:{
+        difficulty:{
             type:DataTypes.INTEGER,
             allowNull:false,
             validate:{

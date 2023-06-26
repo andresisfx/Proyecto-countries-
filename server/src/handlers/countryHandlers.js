@@ -5,19 +5,20 @@ const getCountriesHandler = async(req,res)=>{
     const {name} = req.query
    try {
     let allCountries;
-    if(name){
-     allCountries = await getCountryByName(name);
-   }else {
-    allCountries = await  getAllCountries();
-   }
-    if(!allCountries.length){
-     res.status(400).json({message:"the name doesn`t match"})
-   }else{
-    res.status(200).json(allCountries)
-   }
-   } catch (error) {
-     res.status(400).json({error:error.message})
-   }
+    if (name) {
+      allCountries = await getCountryByName(name);
+    } else {
+      allCountries = await getAllCountries();
+    }
+    if (allCountries.length === 0) {
+      res.status(404).json({ message: "The name doesn`t match" });
+    } else {
+      res.status(200).json(allCountries);
+    }
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+  
 };
 
 const getCoutriesIdHandler = async(req,res)=>{

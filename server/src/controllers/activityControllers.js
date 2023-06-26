@@ -3,20 +3,21 @@ const {Activity,Country} = require("../db.js");
 
 const createActivity = async(
     name,
-    dificult,
+    difficulty,
     duration,
     season,
     countryId,
+    
     
 )=>{
     try {
        const newActivity =await Activity.create({
         name,
-        dificult,
+        difficulty,
         duration,
         season
        })
-
+        
        const countries = await Country.findByPk(countryId);
        await newActivity.setCountries(countries)
       return newActivity;
@@ -28,9 +29,8 @@ const createActivity = async(
 const getActivity = async()=>{
  try {
     const activities =await Activity.findAll({
-        where:{
-            model:Country
-        }
+     include:Country,
+        
     })
     return activities
  } catch (error) {

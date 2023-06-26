@@ -3,6 +3,7 @@ const { Sequelize } = require("sequelize");
 
 const fs = require('fs');
 const path = require('path');
+const { timeStamp } = require("console");
 const {
   DB_USER, DB_PASSWORD, DB_HOST,
 } = process.env;
@@ -33,7 +34,7 @@ sequelize.models = Object.fromEntries(capsEntries);
 
 const { Country,Activity } = sequelize.models;
 
-Country.belongsToMany(Activity, {through: "country_activity"})
+Country.belongsToMany(Activity, {through: "country_activity"},{timestamps:false})
 Activity.belongsToMany(Country, {through: "country_activity"})
 // Aca vendrian las relaciones
 // Product.hasMany(Reviews);

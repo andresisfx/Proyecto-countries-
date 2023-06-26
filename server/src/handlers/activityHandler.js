@@ -1,11 +1,12 @@
 const {createActivity,getActivity}= require("../controllers/activityControllers")
 
 const postActivityHandler = async(req,res)=>{
- const {name,dificult,duration,season,countryId}= req.body;
+ 
+ const {name,difficulty,duration,season,countryId}= req.body;
  try {                        
     const newActivity = await createActivity(
         name,
-        dificult,
+        difficulty,
         duration,
         season,
         countryId

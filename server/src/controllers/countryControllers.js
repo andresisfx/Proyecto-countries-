@@ -4,15 +4,19 @@ const Sequelize = require("sequelize");
 
 const getCountryByName = async(name)=>{
   const countryNameDB = await Country.findAll({
-    where:{
+    where:{                         
         name:{
             [Sequelize.Op.iLike]: `%${name.toLowerCase()}%`
         }
     },
-    include:Activity
+    include:{
+      model:Activity,
+    attributes:["name","difficulty","duration"]
+  }
 });
 return [...countryNameDB];
-}
+};
+
 const getAllCountries = async()=>{
  const allCountries = await Country.findAll({
   include:Activity,
