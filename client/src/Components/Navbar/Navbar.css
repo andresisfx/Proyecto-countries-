@@ -1,0 +1,17 @@
+.nav-cont{
+    width:100vw;
+    background-color: rgb(20, 30, 220);
+    height: 10vw;
+    border: solid 2px black;
+    display:flex;
+    align-items: center;
+}
+
+.nav-button{
+    margin: 40rem;
+    
+}
+.nav-link{
+    margin:5rem;
+    text-align: justify ;
+}
