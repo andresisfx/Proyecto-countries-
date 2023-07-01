@@ -1,12 +1,15 @@
 import React from 'react'
 import "./Card.css"
-const Card = ({name,id,continent}) => {
+const Card = ({flags,name,id, continents}) => {
   return (
     <div className='card-cont'>
       <div className='card-tittle'>
-         <h1>{name}</h1>
-         <h2>{id}</h2>
-         <h3>{continent}</h3>
+         <h1>Name: {name}</h1>
+         <h2>Id: {id}</h2>
+         <h3>Continent: {continents}</h3>
+     </div>
+     <div>
+     <img src={flags} alt="bandera" />
      </div>
     </div>
     

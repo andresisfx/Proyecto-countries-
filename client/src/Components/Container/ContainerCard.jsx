@@ -1,13 +1,23 @@
 import React from 'react'
 import Card from '../Card/Card'
+import "./ContainerCard.css"
 
-function ContainerCard() {
+function ContainerCard({countries}) {
   return (
     <div className="container-cont">
-      <div> <Card name={"colombia"} id={"Col"} continent={"america"}></Card></div>
-      <div><Card name={"vennexuela"} id={"ven"} continent={"america"}></Card></div>
-      <div><Card name={"EEUU"} id={"EU"} continent={"america"}></Card></div>
-      <div><Card name={"China"} id={"CHN"} continent={"Asia"}></Card></div>
+      {countries.map((country)=>{
+        return (
+          <Card 
+           key={country.id}
+          id={country.id}
+          name={country.name}
+          flags={country.flags}
+          continents={country.continents}
+          
+          />
+        )    
+     })}
+   
     </div>
   )
 }
