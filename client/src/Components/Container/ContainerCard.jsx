@@ -2,12 +2,13 @@ import React from 'react'
 import Card from '../Card/Card'
 import "./ContainerCard.css"
 
+
 function ContainerCard({countries}) {
   return (
     <div className="container-cont">
       {countries.map((country)=>{
-        return (
-          <Card 
+       return (     
+         <Card 
            key={country.id}
           id={country.id}
           name={country.name}
@@ -15,6 +16,7 @@ function ContainerCard({countries}) {
           continents={country.continents}
           
           />
+          
         )    
      })}
    

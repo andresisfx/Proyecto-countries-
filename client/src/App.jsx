@@ -31,10 +31,10 @@ function App() {
  return(
   <div className='app-content'>
     <div className='routes-content'>
-     { location.pathname !== "/" && <Navbar onSearch={onSearch}/>}
+     { location.pathname !== "/" && <Navbar />}
       <Routes>
          <Route path="/" element={<Landing/>}/>
-         <Route path="/home" element={<Home/>}/>
+         <Route path="/home" element={<Home onSearch={onSearch}/>}/>
          <Route path="/create" element={<Form/>}/>
          <Route path="/detail/:id" element={<Detail/>}/>
       </Routes>
