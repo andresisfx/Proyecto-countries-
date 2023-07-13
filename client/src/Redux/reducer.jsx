@@ -9,10 +9,19 @@ let initialState ={
 function rootReducer (state= initialState,action){
    switch (action.type) {
     case GET_COUNTRIES:
-        
+    const countriesWithActivities = action.payload.map((country)=>{
+        const activitiesCountry = state.allActivities.filter((activity)=>{
+             country.activities && country.activities.includes(activity.name)
+             
+        })
+        return {
+            ...country,
+            activitiesCountry
+         }
+    })
         return {
             ...state,
-           allCountries: action.payload
+           allCountries:countriesWithActivities
         }
        
     case GET_COUNTRIES_NAME:
