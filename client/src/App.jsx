@@ -19,7 +19,7 @@ function App() {
     
      axios.get(`http://localhost:3001/countries?name=${name}`)
      .then(({data})=>{
-      
+      console.log(data)
       const response = data.length? data[0].name : null;
       dispatch(getCountriesName(response)) 
     })
